@@ -101,3 +101,35 @@ Bu tablo, öğretmen programlarını temsil eder.
 - **DayOfWeek**: Programın yapıldığı haftanın günü.
 - **StartTime**: Programın başlangıç saati.
 - **EndTime**: Programın bitiş saati.
+
+## İlişkiler
+
+- Lessons tablosu, Teachers tablosu ile TeacherId alanı üzerinden ilişkilendirilmiştir.
+- Teachers tablosu, Students tablosu ile StudentId alanı üzerinden ilişkilendirilmiştir.
+- Exams tablosu, Lessons, Students ve Teachers tabloları ile ilgili alanlar üzerinden ilişkilendirilmiştir.
+- Students tablosu, Addresses ve Classes tabloları ile ilgili alanlar üzerinden ilişkilendirilmiştir.
+- Attendances tablosu, Students ve Lessons tabloları ile ilgili alanlar üzerinden ilişkilendirilmiştir.
+- Notes tablosu, Exams, Lessons ve Students tabloları ile ilgili alanlar üzerinden ilişkilendirilmiştir.
+- Parents tablosu, Addresses ve Students tabloları ile ilgili alanlar üzerinden ilişkilendirilmiştir.
+
+## Prosedürler
+
+1. **GetStudentGrades(studentId INT)**:
+   Bu procedure, verilen öğrenci kimliğine göre öğrencinin aldığı notları ve derslerini döndürür.
+2. **GetTeacherSchedule(teacherId INT, dayOfWeek INT)**:
+   Bu procedure, verilen öğretmen kimliği ve haftanın gününe göre öğretmenin programını döndürür.
+3. **GetAbsentStudents(lessonId INT, startDate DATE, endDate DATE)**:
+   Bu procedure, belirtilen ders için verilen tarih aralığında devamsızlık yapan öğrencileri döndürür.
+
+## Görünümler
+
+1. **StudentGradesView**:
+   Bu view, öğrenci notlarını öğrenci adı-soyadı, ders adı ve not değeri olarak birleştirerek sunar.
+2. **TeacherSchedulesView**:
+   Bu view, öğretmen programlarını öğretmen adı-soyadı, ders adı, gün ve saat olarak birleştirerek sunar.
+
+## Kurulum
+
+1. Veritabanını oluşturmak için script dosyasını SQL Server Management Studio veya benzeri bir araçla çalıştırın.
+2. Projeyi yerel makinenizde veya sunucunuzda çalıştırın.
+3. Veritabanına erişim kodları ve bağlantı detayları eklemeyi unutmayın.
